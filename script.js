@@ -1,184 +1,238 @@
-const questions = [
-    {
-        question: "What is the capital of France?",
-        answers: [
-            { text: "Paris", correct: true },
-            { text: "London", correct: false },
-            { text: "Berlin", correct: false },
-            { text: "Madrid", correct: false }
-        ]
-    },
-    {
-        question: "What is 2 + 2?",
-        answers: [
-            { text: "4", correct: true },
-            { text: "22", correct: false },
-            { text: "5", correct: false },
-            { text: "3", correct: false }
-        ]
-    },
-    {
-        question: "What is the largest planet in our solar system?",
-        answers: [
-            { text: "Jupiter", correct: true },
-            { text: "Earth", correct: false },
-            { text: "Mars", correct: false },
-            { text: "Saturn", correct: false }
-        ]
-    },
-    {
-        question: "What is the chemical symbol for water?",
-        answers: [
-            { text: "H2O", correct: true },
-            { text: "O2", correct: false },
-            { text: "CO2", correct: false },
-            { text: "He", correct: false }
-        ]
-    },
-    {
-        question: "Which country is known as the Land of the Rising Sun?",
-        answers: [
-            { text: "China", correct: false },
-            { text: "Japan", correct: true },
-            { text: "Thailand", correct: false },
-            { text: "South Korea", correct: false }
-        ]
-    },
-    {
-        question: "What is the main language spoken in Brazil?",
-        answers: [
-            { text: "Spanish", correct: false },
-            { text: "Portuguese", correct: true },
-            { text: "English", correct: false },
-            { text: "French", correct: false }
-        ]
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        answers: [
-            { text: "Venus", correct: false },
-            { text: "Mars", correct: true },
-            { text: "Saturn", correct: false },
-            { text: "Mercury", correct: false }
-        ]
-    },
-    {
-        question: "What is the hardest natural substance on Earth?",
-        answers: [
-            { text: "Gold", correct: false },
-            { text: "Diamond", correct: true },
-            { text: "Iron", correct: false },
-            { text: "Quartz", correct: false }
-        ]
-    },
-    {
-        question: "What is the largest ocean on Earth?",
-        answers: [
-            { text: "Atlantic Ocean", correct: false },
-            { text: "Indian Ocean", correct: false },
-            { text: "Arctic Ocean", correct: false },
-            { text: "Pacific Ocean", correct: true }
-        ]
-    },
-    {
-        question: "What is the capital of Italy?",
-        answers: [
-            { text: "Rome", correct: true },
-            { text: "Milan", correct: false },
-            { text: "Venice", correct: false },
-            { text: "Florence", correct: false }
-        ]
-    },
-];
-
-let currentQuestionIndex = 0;
-let score = 0;
-
-const startButton = document.getElementById("start-button");
-const quizContainer = document.querySelector(".quiz-container");
-const questionText = document.getElementById("question-text");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-button");
-const scoreElement = document.getElementById("score");
-
-startButton.addEventListener("click", startQuiz);
-nextButton.addEventListener("click", nextQuestion);
-
-function startQuiz() {
-    startButton.style.display = "none";
-    quizContainer.style.display = "flex";
-    currentQuestionIndex = 0;
-    score = 0;
-    scoreElement.innerText = "0 / 10";
-    showQuestion();
-}
-
-function showQuestion() {
-    resetState();
-    const currentQuestion = questions[currentQuestionIndex];
-    questionText.innerText = currentQuestion.question;
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-        button.classList.add("btn");
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
+const questions = {
+    capitals: [
+        {
+            question: "What is the capital of France?",
+            answers: [
+                { text: "Berlin", correct: false },
+                { text: "Madrid", correct: false },
+                { text: "Paris", correct: true },
+                { text: "Rome", correct: false }
+            ]
+        },
+        {
+            question: "What is the capital of Japan?",
+            answers: [
+                { text: "Seoul", correct: false },
+                { text: "Tokyo", correct: true },
+                { text: "Beijing", correct: false },
+                { text: "Bangkok", correct: false }
+            ]
+        },
+        {
+            question: "What is the capital of Italy?",
+            answers: [
+                { text: "Venice", correct: false },
+                { text: "Milan", correct: false },
+                { text: "Rome", correct: true },
+                { text: "Florence", correct: false }
+            ]
+        },
+        {
+            question: "What is the capital of Canada?",
+            answers: [
+                { text: "Toronto", correct: false },
+                { text: "Ottawa", correct: true },
+                { text: "Vancouver", correct: false },
+                { text: "Montreal", correct: false }
+            ]
+        },
+        {
+            question: "What is the capital of Australia?",
+            answers: [
+                { text: "Sydney", correct: false },
+                { text: "Canberra", correct: true },
+                { text: "Melbourne", correct: false },
+                { text: "Brisbane", correct: false }
+            ]
         }
-        button.addEventListener("click", selectAnswer);
-        answerButtons.appendChild(button);
+    ],
+    general: [
+        {
+            question: "Who wrote 'Hamlet'?",
+            answers: [
+                { text: "Mark Twain", correct: false },
+                { text: "William Shakespeare", correct: true },
+                { text: "Charles Dickens", correct: false },
+                { text: "Jane Austen", correct: false }
+            ]
+        },
+        {
+            question: "What is the largest planet in our solar system?",
+            answers: [
+                { text: "Earth", correct: false },
+                { text: "Jupiter", correct: true },
+                { text: "Mars", correct: false },
+                { text: "Saturn", correct: false }
+            ]
+        },
+        {
+            question: "What is the boiling point of water?",
+            answers: [
+                { text: "100°C", correct: true },
+                { text: "90°C", correct: false },
+                { text: "110°C", correct: false },
+                { text: "80°C", correct: false }
+            ]
+        },
+        {
+            question: "What is the currency of Japan?",
+            answers: [
+                { text: "Yen", correct: true },
+                { text: "Won", correct: false },
+                { text: "Dollar", correct: false },
+                { text: "Yuan", correct: false }
+            ]
+        },
+        {
+            question: "Which planet is known as the Red Planet?",
+            answers: [
+                { text: "Earth", correct: false },
+                { text: "Venus", correct: false },
+                { text: "Mars", correct: true },
+                { text: "Jupiter", correct: false }
+            ]
+        }
+    ],
+    custom: [
+        {
+            question: "What is the chemical symbol for Gold?",
+            answers: [
+                { text: "Au", correct: true },
+                { text: "Ag", correct: false },
+                { text: "Pb", correct: false },
+                { text: "Fe", correct: false }
+            ]
+        },
+        {
+            question: "What is the capital of Australia?",
+            answers: [
+                { text: "Canberra", correct: true },
+                { text: "Sydney", correct: false },
+                { text: "Melbourne", correct: false },
+                { text: "Brisbane", correct: false }
+            ]
+        },
+        {
+            question: "What gas do plants absorb from the atmosphere?",
+            answers: [
+                { text: "Oxygen", correct: false },
+                { text: "Nitrogen", correct: false },
+                { text: "Carbon Dioxide", correct: true },
+                { text: "Hydrogen", correct: false }
+            ]
+        },
+        {
+            question: "What is the largest mammal in the world?",
+            answers: [
+                { text: "Elephant", correct: false },
+                { text: "Blue Whale", correct: true },
+                { text: "Giraffe", correct: false },
+                { text: "Great White Shark", correct: false }
+            ]
+        },
+        {
+            question: "Which element has the highest atomic number?",
+            answers: [
+                { text: "Osmium", correct: false },
+                { text: "Uranium", correct: false },
+                { text: "Ununoctium", correct: true },
+                { text: "Hydrogen", correct: false }
+            ]
+        }
+    ]
+};
+
+let currentQuestionIndex, score;
+const scoreText = document.getElementById('score');
+const questionText = document.getElementById('question-text');
+const answerButtons = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-button');
+const backButton = document.getElementById('back-button');
+const quizContainer = document.querySelector('.quiz-container');
+const quizSelectionContainer = document.querySelector('.quiz-selection-container');
+const progressFill = document.getElementById('progress-fill');
+
+// Event listeners for starting the quiz
+document.getElementById('start-capitals').addEventListener('click', () => startQuiz('capitals'));
+document.getElementById('start-general').addEventListener('click', () => startQuiz('general'));
+document.getElementById('start-custom').addEventListener('click', () => startQuiz('custom'));
+
+// Back button functionality
+backButton.addEventListener('click', () => {
+    quizContainer.style.display = 'none'; // Hide quiz container
+    quizSelectionContainer.style.display = 'flex'; // Show quiz selection
+    backButton.style.display = 'none'; // Hide back button when returning to selection
+});
+
+// Function to start the quiz
+function startQuiz(quizType) {
+    quizContainer.style.display = 'flex'; // Show the quiz container
+    quizSelectionContainer.style.display = 'none'; // Hide quiz selection
+    score = 0; // Reset score
+    currentQuestionIndex = 0; // Reset question index
+    progressFill.style.width = '0%'; // Reset progress bar
+    scoreText.innerText = `${score} / ${questions[quizType].length}`; // Update score display
+    showQuestion(quizType); // Show first question
+}
+
+// Function to display a question
+function showQuestion(quizType) {
+    const currentQuestion = questions[quizType][currentQuestionIndex];
+    questionText.innerText = currentQuestion.question;
+    answerButtons.innerHTML = ''; // Clear previous answers
+
+    // Create buttons for each answer
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        button.addEventListener('click', () => selectAnswer(answer.correct, quizType)); // Check answer
+        answerButtons.appendChild(button); // Add button to answer buttons
     });
-    updateProgressBar(); // Update the progress bar whenever a question is shown
+
+    nextButton.style.display = 'none'; // Hide next button initially
 }
 
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-}
-
-function selectAnswer(e) {
-    const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct === "true";
+// Function to handle answer selection
+function selectAnswer(correct, quizType) {
     if (correct) {
-        score++;
+        score++; // Increment score if answer is correct
     }
+    scoreText.innerText = `${score} / ${questions[quizType].length}`; // Update score display
+    progressFill.style.width = `${((currentQuestionIndex + 1) / questions[quizType].length) * 100}%`; // Update progress bar
+
+    nextButton.style.display = 'block'; // Show the next button
     Array.from(answerButtons.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct === "true");
+        button.disabled = true; // Disable all answer buttons
+        button.style.backgroundColor = correct ? 'green' : 'red'; // Color correct/incorrect buttons
     });
-    if (currentQuestionIndex < questions.length - 1) {
-        nextButton.style.display = "block";
-    } else {
-        nextButton.innerText = "Finish Quiz";
-        nextButton.style.display = "block";
-    }
-    updateProgressBar(); // Update the progress bar on correct answer
 }
 
-function setStatusClass(element, correct) {
-    element.style.backgroundColor = correct ? "#28a745" : "#dc3545";
-}
-
-function nextQuestion() {
+// Event listener for next button
+nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
+    const quizType = Object.keys(questions).find(type => questions[type].length > 0);
+    if (currentQuestionIndex < questions[quizType].length) {
+        showQuestion(quizType); // Show next question
     } else {
-        quizContainer.style.display = "none";
-        startButton.innerText = "Restart Quiz";
-        startButton.style.display = "block";
-        alert(`Quiz completed! Your score: ${score}/10`);
+        endQuiz(quizType); // End the quiz
     }
-    scoreElement.innerText = `${score} / 10`;
+});
+
+// Function to end the quiz
+function endQuiz(quizType) {
+    quizContainer.style.display = 'none'; // Hide quiz container
+    alert(`Quiz finished! Your score: ${score} / ${questions[quizType].length}`); // Show alert with score
+    backButton.style.display = 'block'; // Show the back button
+    quizSelectionContainer.style.display = 'flex'; // Show quiz selection again
+    scoreText.innerText = `${score} / ${questions[quizType].length}`; // Display final score
 }
 
-// Function to update the progress bar
-function updateProgressBar() {
-    const progressFill = document.getElementById("progress-fill");
-    const totalQuestions = questions.length;
-    const progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
-    progressFill.style.width = `${progressPercentage}%`; // Update the width of the progress fill
-}
+
+
+
+
+
 
 
 

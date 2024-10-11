@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
-  <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
-  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  </head>
+</head>
 <body>
 
-  <div class="quiz-container">
-    <div class="score-box">
-      <h2>Score</h2>
-      <p id="score">0 / 10</p> <!-- Score displayed here -->
+    <div class="quiz-selection-container">
+        <div class="quiz-selection-box">
+            <h2>Capitals of Countries</h2>
+            <button class="quiz-button" id="start-capitals">Start Quiz</button>
+        </div>
+        <div class="quiz-selection-box">
+            <h2>General Knowledge</h2>
+            <button class="quiz-button" id="start-general">Start Quiz</button>
+        </div>
+        <div class="quiz-selection-box">
+            <h2>Pick Your Quiz</h2>
+            <button class="quiz-button" id="start-custom">Start Quiz</button>
+        </div>
     </div>
 
-    <div class="question-box">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-      <h2 id="question-text">Question will appear here</h2> <!-- Placeholder for the question -->
-      <div id="answer-buttons" class="answer-buttons">
-        <!-- Answer buttons will be inserted here dynamically -->
-      </div>
-      <button id="next-button" style="display: none;">Next Question</button> <!-- Button for next question -->
+    <div class="quiz-container" style="display: none;"> <!-- Initially hidden -->
+        <div class="score-box">
+            <h2>Score</h2>
+            <p id="score">0 / 10</p>
+        </div>
+
+        <div class="question-box">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <h2 id="question-text">Question will appear here</h2>
+            <div id="answer-buttons" class="answer-buttons"></div>
+            <button id="next-button" style="display: none;">Next Question</button>
+        </div>
+
+        <!-- Move the back button here -->
+        <button id="back-button" style="display: none;">Back to Quiz Selection</button> <!-- Back button -->
     </div>
-  </div>
 
-  <button id="start-button">Start Quiz</button> <!-- Start button -->
-
-  <script src="script.js"></script> <!-- Link to the JS file -->
+    <script src="script.js"></script> <!-- Link to the JS file -->
 </body>
 </html>
+
+
+
+
+
 
 
 

@@ -1,4 +1,3 @@
-/* Basic body styling */
 body {
     background-color: #00bfff; /* Fun blue background color */
     font-family: 'Poppins', sans-serif;
@@ -10,13 +9,67 @@ body {
     margin: 0;
 }
 
+/* Quiz selection container styling */
+.quiz-selection-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+/* Quiz box styling */
+.quiz-selection-box {
+    background-color: white; /* Set the background color to white */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    width: 200px;
+    margin: 10px; /* Add some margin to space out the boxes */
+}
+
+/* Styling for the start quiz button */
+.start-quiz-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Button hover effect */
+.start-quiz-button:hover {
+    background-color: #218838;
+}
+
+/* Styling for the quiz buttons */
+.quiz-button {
+    background-color: #28a745; /* Button color */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+}
+
+/* Button hover effect */
+.quiz-button:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+
 /* Container for the quiz elements */
 .quiz-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 80%;
-    display: none; /* Initially hidden */
 }
 
 /* Score box styling */
@@ -122,5 +175,39 @@ body {
 #next-button:hover {
     background-color: #218838;
 }
+
+.quiz-selection-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the content */
+    justify-content: center; /* Center content vertically */
+    margin: 20px;
+}
+
+.quiz-selection-box button {
+    margin-top: auto; /* Push the button to the bottom of the box */
+}
+
+#back-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Margin to separate it from the question */
+    display: none; /* Start hidden */
+}
+
+
+
+/* Back button hover effect */
+#back-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+
 
 
