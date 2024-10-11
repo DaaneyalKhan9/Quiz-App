@@ -1,0 +1,126 @@
+/* Basic body styling */
+body {
+    background-color: #00bfff; /* Fun blue background color */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the quiz elements */
+.quiz-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    display: none; /* Initially hidden */
+}
+
+/* Score box styling */
+.score-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Question box styling */
+.question-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    flex: 1;
+    margin-left: 20px;
+    text-align: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Progress bar styling */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0; /* Background color for the progress bar */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between progress bar and question */
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0; /* Start with 0 width */
+    background-color: #28a745; /* Green fill for progress */
+    border-radius: 5px;
+    transition: width 0.5s ease; /* Smooth transition for the width */
+}
+
+/* Styling for the start button */
+#start-button {
+    background-color: #b41031;
+    color: white;
+    padding: 15px 30px;
+    font-size: 24px;
+    box-shadow: 0px 8px 20px rgba(87, 87, 87, 0.8);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Button hover effect */
+#start-button:hover {
+    background-color: #218838;
+}
+
+/* Answer buttons styling */
+#answer-buttons button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Answer button hover */
+#answer-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the next question button */
+#next-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Next button hover */
+#next-button:hover {
+    background-color: #218838;
+}
+
+
